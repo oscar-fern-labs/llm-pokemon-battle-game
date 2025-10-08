@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Pokemon Battle</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Title Screen -->
+        <div id="title-screen" class="screen active">
+            <div class="title-content">
+                <h1 class="game-title">
+                    <span class="llm">LLM</span>
+                    <span class="pokemon">Pokemon</span>
+                    <span class="battle">Battle</span>
+                </h1>
+                <div class="subtitle">Choose Your Fighter!</div>
+                
+                <div class="pokemon-selection">
+                    <h2>Select Your LLM Pokemon:</h2>
+                    <div class="pokemon-grid" id="pokemon-grid">
+                        <!-- Pokemon cards will be loaded here -->
+                    </div>
+                </div>
+                
+                <button id="start-battle" class="pixel-button" disabled>
+                    Start Battle!
+                </button>
+            </div>
+        </div>
+
+        <!-- Battle Screen -->
+        <div id="battle-screen" class="screen">
+            <div class="battle-interface">
+                <!-- Top Section: Enemy Pokemon -->
+                <div class="enemy-section">
+                    <div class="pokemon-info enemy-info">
+                        <div class="pokemon-name" id="enemy-name">Enemy Pokemon</div>
+                        <div class="pokemon-company" id="enemy-company">Company</div>
+                        <div class="hp-bar-container">
+                            <div class="hp-bar">
+                                <div class="hp-fill" id="enemy-hp-fill"></div>
+                            </div>
+                            <div class="hp-text" id="enemy-hp-text">HP: 100/100</div>
+                        </div>
+                        <div class="pokemon-types" id="enemy-types">
+                            <span class="type">TYPE1</span>
+                            <span class="type">TYPE2</span>
+                        </div>
+                    </div>
+                    <div class="pokemon-sprite-container enemy-sprite">
+                        <div class="pokemon-sprite" id="enemy-sprite">
+                            <!-- Enemy sprite will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Battle Arena -->
+                <div class="battle-arena">
+                    <canvas id="battle-canvas" width="400" height="200"></canvas>
+                </div>
+
+                <!-- Bottom Section: Player Pokemon -->
+                <div class="player-section">
+                    <div class="pokemon-sprite-container player-sprite">
+                        <div class="pokemon-sprite" id="player-sprite">
+                            <!-- Player sprite will be rendered here -->
+                        </div>
+                    </div>
+                    <div class="pokemon-info player-info">
+                        <div class="pokemon-name" id="player-name">Your Pokemon</div>
+                        <div class="pokemon-company" id="player-company">Company</div>
+                        <div class="hp-bar-container">
+                            <div class="hp-bar">
+                                <div class="hp-fill" id="player-hp-fill"></div>
+                            </div>
+                            <div class="hp-text" id="player-hp-text">HP: 100/100</div>
+                        </div>
+                        <div class="pokemon-types" id="player-types">
+                            <span class="type">TYPE1</span>
+                            <span class="type">TYPE2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Battle Log -->
+                <div class="battle-log-container">
+                    <div class="battle-log" id="battle-log">
+                        <div class="log-message">Battle is starting...</div>
+                    </div>
+                </div>
+
+                <!-- Move Selection -->
+                <div class="move-selection" id="move-selection">
+                    <h3>Choose Your Move:</h3>
+                    <div class="moves-grid" id="moves-grid">
+                        <!-- Moves will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Battle Controls -->
+                <div class="battle-controls">
+                    <button id="auto-battle" class="pixel-button small">Auto Battle</button>
+                    <button id="new-battle" class="pixel-button small">New Battle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/sprites.js"></script>
+    <script src="js/battle.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
